@@ -1,0 +1,16 @@
+.card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  margin: 10px 3%;
+  border-radius: 10px;
+}
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-content {
+
+  width: 50%;
+  text-align: center;
+}

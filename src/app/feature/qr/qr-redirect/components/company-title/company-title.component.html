@@ -1,0 +1,14 @@
+<app-card>
+  <div class="container">
+    <div class="column">
+      <img class="image" [src]="infoRedirect.imageLinkTitle" alt="Descripción de la imagen">
+    </div>
+    <div class="column">
+      <h2 [ngStyle]="infoRedirect.stylesTemplate.h2">{{infoRedirect.customerName}}</h2>
+      <p>{{infoRedirect.description}}</p>
+    </div>
+    <div class="column">
+      <app-social-networks-button [socialsNetworkUrls]="infoRedirect.socialsNetworkUrls"></app-social-networks-button>
+    </div>
+  </div>
+</app-card>

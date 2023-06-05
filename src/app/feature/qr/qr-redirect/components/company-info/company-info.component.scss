@@ -1,0 +1,45 @@
+.container{
+  display: grid;
+  grid-template-columns: 4fr 7fr;
+  grid-gap: 10px;
+}
+
+.table-container{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  table {
+    text-align: left;
+    width: 30%;
+    border-collapse: separate;
+    border-spacing: 0 20px;
+  }
+  th, td {
+    font-size: 22px;
+    white-space: nowrap;
+  }
+}
+
+.column {
+  padding: 10px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info div {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.info strong {
+  font-weight: bold;
+  margin-right: 10px;
+}

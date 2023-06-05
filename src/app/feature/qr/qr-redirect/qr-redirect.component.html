@@ -1,0 +1,65 @@
+<mat-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <app-card title="Datos para entrenar el modelo">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>DATOS ENTRENAMIENTO</ng-template>
+        <mat-form-field>
+          <mat-label>Categoria de la imagen</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <div class="center">
+          <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
+                         (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+            <ng-template  ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+              Por favor arrastra y selecciona todos los archivos aqui
+              <button mat-button color="primary" (click)="openFileSelector()">Navega los arhivos aqui</button>
+            </ng-template>
+          </ngx-file-drop>
+          <br> <br>
+          <mat-list>
+            <div mat-subheader>Nombres de las imagenes</div>
+            <mat-list-item *ngFor="let item of files; let i=index">
+              <mat-icon matListItemIcon>folder</mat-icon>
+              <div matListItemTitle>{{item.relativePath}}</div>
+              <div matListItemLine>Imagen</div>
+            </mat-list-item>
+          </mat-list>
+        </div>
+        <button (click)="trainModel()" mat-raised-button color="primary">Entrenar Modelo</button>
+      </form>
+    </app-card>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="CLASIFICAR iMAGEN">
+    <app-card title="Clasificar Imagen">
+      <br>
+      <div class="center">
+        <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
+                       (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+          <ng-template  ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+            Por favor arrastra y selecciona todos los archivos aqui
+            <button mat-button color="primary" (click)="openFileSelector()">Navega los arhivos aqui</button>
+          </ng-template>
+        </ngx-file-drop>
+        <br> <br>
+        <mat-list>
+          <div mat-subheader>Nombres de la imagen</div>
+          <mat-list-item *ngFor="let item of files; let i=index">
+            <mat-icon matListItemIcon>folder</mat-icon>
+            <div matListItemTitle>{{item.relativePath}}</div>
+            <div matListItemLine>Imagen</div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <button (click)="sorterImage()" mat-raised-button color="primary">Clasificar</button>
+      <br>
+      <app-card *ngIf="dataResponse.predictedLabelValue != 'NONE'" title="Resultados de la prediccion">
+        <div >
+          <p *ngFor="let score of dataResponse.score">Score: {{ score }}</p>
+          <p>Predicted Label Value: {{ dataResponse.predictedLabelValue }}</p>
+        </div>
+      </app-card>
+    </app-card>
+  </mat-step>
+</mat-stepper>
+
+

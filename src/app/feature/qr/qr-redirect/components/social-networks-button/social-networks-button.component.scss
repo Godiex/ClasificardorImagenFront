@@ -1,0 +1,27 @@
+.social-buttons {
+  display: flex;
+}
+
+.social-button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.social-button.facebook {
+  background-color: #3b5998;
+  color: #fff;
+}
+
+.social-button.whatsapp {
+  background-color: #009e27;
+  color: #fff;
+}
+
+.social-button.instagram {
+  background-color: #e4405f;
+  color: #fff;
+}
